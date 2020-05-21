@@ -2,4 +2,4 @@
 
 Detecting the proximity
 
-Using data obtained from the sensor
+Using data obtained from the sensor and 
