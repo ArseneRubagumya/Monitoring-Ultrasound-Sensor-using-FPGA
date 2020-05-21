@@ -1,0 +1,40 @@
+|BCD_Converter
+Distance_input[0] => unit[0].DATAIN
+Distance_input[1] => bcd~31.DATAA
+Distance_input[1] => Add7.IN8
+Distance_input[1] => LessThan7.IN8
+Distance_input[2] => bcd~23.DATAA
+Distance_input[2] => Add5.IN8
+Distance_input[2] => LessThan5.IN8
+Distance_input[3] => bcd~15.DATAA
+Distance_input[3] => Add3.IN8
+Distance_input[3] => LessThan3.IN8
+Distance_input[4] => bcd~11.DATAA
+Distance_input[4] => Add2.IN8
+Distance_input[4] => LessThan2.IN8
+Distance_input[5] => bcd~7.DATAA
+Distance_input[5] => Add1.IN8
+Distance_input[5] => LessThan1.IN8
+Distance_input[6] => bcd~3.DATAA
+Distance_input[6] => Add0.IN6
+Distance_input[6] => LessThan0.IN6
+Distance_input[7] => bcd~2.DATAA
+Distance_input[7] => Add0.IN5
+Distance_input[7] => LessThan0.IN5
+Distance_input[8] => bcd~1.DATAA
+Distance_input[8] => Add0.IN4
+Distance_input[8] => LessThan0.IN4
+hundreds[0] <= bcd~32.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[1] <= bcd~24.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[2] <= bcd~16.DB_MAX_OUTPUT_PORT_TYPE
+hundreds[3] <= <GND>
+tens[0] <= bcd~28.DB_MAX_OUTPUT_PORT_TYPE
+tens[1] <= bcd~35.DB_MAX_OUTPUT_PORT_TYPE
+tens[2] <= bcd~34.DB_MAX_OUTPUT_PORT_TYPE
+tens[3] <= bcd~33.DB_MAX_OUTPUT_PORT_TYPE
+unit[0] <= Distance_input[0].DB_MAX_OUTPUT_PORT_TYPE
+unit[1] <= bcd~31.DB_MAX_OUTPUT_PORT_TYPE
+unit[2] <= bcd~30.DB_MAX_OUTPUT_PORT_TYPE
+unit[3] <= bcd~29.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Full_Capteur">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Full_Capteur|div1hz:inst3|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_gph.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

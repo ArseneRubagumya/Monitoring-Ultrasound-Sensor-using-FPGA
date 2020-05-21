@@ -1,0 +1,48 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Moteur is
+	port(	clk : in std_logic;  --frequence de 763Hz;  sens
+			distance : in std_logic_vector(8 downto 0);
+			ToMotor : out std_logic_vector(3 downto 0)  --4 bit de controle du moteur
+        );
+end Moteur;
+
+architecture Behavioral of Moteur is 
+	type type_etat is (E1, E2, E3, E4);
+	signal x:type_etat;
+	signal sens : std_logic;
+	
+begin
+	process (clk)
+	begin
+		
+	if clk'event and clk='1' then
+	
+		if(distance >"000001111") then sens <= '1';
+			else sens <= '0';
+		end if;
+	
+	case x is
+		when E1=> if sens = '1' then x<=E2;	
+				else x<=E4;
+			end if;
+		when E2=> 
+			if sens = '1' then x<=E3;	
+				else x<=E1;
+			end if;
+		when E3=> 
+			if sens = '1' then x<=E4;	
+				else x<=E2;
+			end if;
+		when others=> x<=E1;
+				
+	end case;
+	end if;
+end process;
+
+	ToMotor <= 	"1001" when E1,
+				"1010" when E2,
+				"0110" when E3,
+				"0101" when E4;
+end Behavioral;

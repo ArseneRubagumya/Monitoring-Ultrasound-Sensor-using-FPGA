@@ -1,0 +1,414 @@
+Analysis & Synthesis report for Full_Capteur
+Mon Mar 09 14:45:14 2020
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |Full_Capteur|Moteur:inst2|x
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Source assignments for div1hz:inst3|lpm_counter:lpm_counter_component
+ 12. Parameter Settings for User Entity Instance: Trig_gen:inst|Counter:trigg
+ 13. Parameter Settings for User Entity Instance: Distance_Calc:inst16|Counter:CounterEcho
+ 14. Parameter Settings for User Entity Instance: div1hz:inst3|lpm_counter:lpm_counter_component
+ 15. Port Connectivity Checks: "Trig_gen:inst|Counter:trigg"
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++------------------------------------+-----------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Mar 09 14:45:14 2020   ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Web Edition ;
+; Revision Name                      ; Full_Capteur                            ;
+; Top-level Entity Name              ; Full_Capteur                            ;
+; Family                             ; Cyclone III                             ;
+; Total logic elements               ; 205                                     ;
+;     Total combinational functions  ; 205                                     ;
+;     Dedicated logic registers      ; 89                                      ;
+; Total registers                    ; 89                                      ;
+; Total pins                         ; 31                                      ;
+; Total virtual pins                 ; 0                                       ;
+; Total memory bits                  ; 0                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                       ;
+; Total PLLs                         ; 0                                       ;
++------------------------------------+-----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Option                                                         ; Setting            ; Default Value      ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Device                                                         ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                          ; Full_Capteur       ; Full_Capteur       ;
+; Family name                                                    ; Cyclone III        ; Stratix II         ;
+; Use Generated Physical Constraints File                        ; Off                ;                    ;
+; Use smart compilation                                          ; Off                ; Off                ;
+; Restructure Multiplexers                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                            ; Off                ; Off                ;
+; Preserve fewer node names                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                      ; Off                ; Off                ;
+; Verilog Version                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                       ; Auto               ; Auto               ;
+; Safe State Machine                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                              ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                     ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                 ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On                 ; On                 ;
+; Parallel Synthesis                                             ; Off                ; Off                ;
+; DSP Block Balancing                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                 ; Off                ; Off                ;
+; Optimization Technique                                         ; Balanced           ; Balanced           ;
+; Carry Chain Length                                             ; 70                 ; 70                 ;
+; Auto Carry Chains                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                          ; Off                ; Off                ;
+; Auto ROM Replacement                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                           ; On                 ; On                 ;
+; Auto DSP Block Replacement                                     ; On                 ; On                 ;
+; Auto Shift Register Replacement                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                  ; On                 ; On                 ;
+; Strict RAM Replacement                                         ; Off                ; Off                ;
+; Allow Synchronous Control Signals                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                         ; Off                ; Off                ;
+; Auto RAM Block Balancing                                       ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                              ; Off                ; Off                ;
+; Auto Resource Sharing                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                  ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing            ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives              ; Off                ; Off                ;
+; Timing-Driven Synthesis                                        ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                             ; Off                ; Off                ;
+; Synchronization Register Chain Length                          ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100                ; 100                ;
+; Clock MUX Protection                                           ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                    ; Off                ; Off                ;
+; Block Design Naming                                            ; Auto               ; Auto               ;
+; SDC constraint protection                                      ; Off                ; Off                ;
+; Synthesis Effort                                               ; Auto               ; Auto               ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                             ; Medium             ; Medium             ;
++----------------------------------------------------------------+--------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+
+; Full_Capteur.bdf                 ; yes             ; User Block Diagram/Schematic File  ; C:/Users/arsen/Desktop/Projet/capt2/Full_Capteur.bdf                 ;
+; Trig_gen.vhd                     ; yes             ; Auto-Found VHDL File               ; C:/Users/arsen/Desktop/Projet/capt2/Trig_gen.vhd                     ;
+; Counter.vhd                      ; yes             ; Auto-Found VHDL File               ; C:/Users/arsen/Desktop/Projet/capt2/Counter.vhd                      ;
+; Distance_Calc.vhd                ; yes             ; Auto-Found VHDL File               ; C:/Users/arsen/Desktop/Projet/capt2/Distance_Calc.vhd                ;
+; Buzzer_sounder.vhd               ; yes             ; Auto-Found VHDL File               ; C:/Users/arsen/Desktop/Projet/capt2/Buzzer_sounder.vhd               ;
+; div1hz.vhd                       ; yes             ; Auto-Found Wizard-Generated File   ; C:/Users/arsen/Desktop/Projet/capt2/div1hz.vhd                       ;
+; lpm_counter.tdf                  ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/lpm_counter.tdf         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/lpm_constant.inc        ;
+; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/lpm_decode.inc          ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/lpm_add_sub.inc         ;
+; cmpconst.inc                     ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/cmpconst.inc            ;
+; lpm_compare.inc                  ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/lpm_compare.inc         ;
+; lpm_counter.inc                  ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/lpm_counter.inc         ;
+; dffeea.inc                       ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/dffeea.inc              ;
+; alt_synch_counter.inc            ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/alt_synch_counter.inc   ;
+; alt_synch_counter_f.inc          ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/alt_synch_counter_f.inc ;
+; alt_counter_f10ke.inc            ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/alt_counter_f10ke.inc   ;
+; alt_counter_stratix.inc          ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/alt_counter_stratix.inc ;
+; aglobal90.inc                    ; yes             ; Megafunction                       ; c:/altera/90/quartus/libraries/megafunctions/aglobal90.inc           ;
+; db/cntr_gph.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/arsen/Desktop/Projet/capt2/db/cntr_gph.tdf                  ;
+; Moteur.vhd                       ; yes             ; Auto-Found VHDL File               ; C:/Users/arsen/Desktop/Projet/capt2/Moteur.vhd                       ;
+; affichage.vhd                    ; yes             ; Auto-Found VHDL File               ; C:/Users/arsen/Desktop/Projet/capt2/affichage.vhd                    ;
+; BCD_Converter.vhd                ; yes             ; Auto-Found VHDL File               ; C:/Users/arsen/Desktop/Projet/capt2/BCD_Converter.vhd                ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 205       ;
+;                                             ;           ;
+; Total combinational functions               ; 205       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 82        ;
+;     -- 3 input functions                    ; 43        ;
+;     -- <=2 input functions                  ; 80        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 116       ;
+;     -- arithmetic mode                      ; 89        ;
+;                                             ;           ;
+; Total registers                             ; 89        ;
+;     -- Dedicated logic registers            ; 89        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 31        ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 72        ;
+; Total fan-out                               ; 917       ;
+; Average fan-out                             ; 2.58      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                  ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
+; |Full_Capteur                             ; 205 (0)           ; 89 (0)       ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |Full_Capteur                                                                        ; work         ;
+;    |BCD_Converter:inst1|                  ; 39 (39)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|BCD_Converter:inst1                                                    ; work         ;
+;    |Buzzer_sounder:inst17|                ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|Buzzer_sounder:inst17                                                  ; work         ;
+;    |Distance_Calc:inst16|                 ; 70 (48)           ; 34 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|Distance_Calc:inst16                                                   ; work         ;
+;       |Counter:CounterEcho|               ; 22 (22)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|Distance_Calc:inst16|Counter:CounterEcho                               ; work         ;
+;    |Moteur:inst2|                         ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|Moteur:inst2                                                           ; work         ;
+;    |Trig_gen:inst|                        ; 37 (13)           ; 24 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|Trig_gen:inst                                                          ; work         ;
+;       |Counter:trigg|                     ; 24 (24)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|Trig_gen:inst|Counter:trigg                                            ; work         ;
+;    |affichage:inst7|                      ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|affichage:inst7                                                        ; work         ;
+;    |affichage:inst8|                      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|affichage:inst8                                                        ; work         ;
+;    |affichage:inst9|                      ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|affichage:inst9                                                        ; work         ;
+;    |div1hz:inst3|                         ; 26 (0)            ; 26 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|div1hz:inst3                                                           ; work         ;
+;       |lpm_counter:lpm_counter_component| ; 26 (0)            ; 26 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|div1hz:inst3|lpm_counter:lpm_counter_component                         ; work         ;
+;          |cntr_gph:auto_generated|        ; 26 (26)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Full_Capteur|div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------+
+; State Machine - |Full_Capteur|Moteur:inst2|x ;
++------+------+------+------+------------------+
+; Name ; x.E4 ; x.E3 ; x.E2 ; x.E1             ;
++------+------+------+------+------------------+
+; x.E1 ; 0    ; 0    ; 0    ; 0                ;
+; x.E2 ; 0    ; 0    ; 1    ; 1                ;
+; x.E3 ; 0    ; 1    ; 0    ; 1                ;
+; x.E4 ; 1    ; 0    ; 0    ; 1                ;
++------+------+------+------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                  ;
++------------------------------------------------------------------------------------------------+--------------------+
+; Register name                                                                                  ; Reason for Removal ;
++------------------------------------------------------------------------------------------------+--------------------+
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[26..29] ; Lost fanout        ;
+; Total Number of Removed Registers = 4                                                          ;                    ;
++------------------------------------------------------------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 89    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 46    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 23    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Full_Capteur|Distance_Calc:inst16|sounder[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Source assignments for div1hz:inst3|lpm_counter:lpm_counter_component ;
++---------------------------+-------+------+----------------------------+
+; Assignment                ; Value ; From ; To                         ;
++---------------------------+-------+------+----------------------------+
+; SUPPRESS_DA_RULE_INTERNAL ; a101  ; -    ; -                          ;
+; SUPPRESS_DA_RULE_INTERNAL ; s102  ; -    ; -                          ;
+; SUPPRESS_DA_RULE_INTERNAL ; s103  ; -    ; -                          ;
++---------------------------+-------+------+----------------------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Trig_gen:inst|Counter:trigg ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; n              ; 24    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Distance_Calc:inst16|Counter:CounterEcho ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 22    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: div1hz:inst3|lpm_counter:lpm_counter_component ;
++------------------------+-------------+------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                 ;
++------------------------+-------------+------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                       ;
+; LPM_WIDTH              ; 30          ; Signed Integer                                       ;
+; LPM_DIRECTION          ; UP          ; Untyped                                              ;
+; LPM_MODULUS            ; 0           ; Untyped                                              ;
+; LPM_AVALUE             ; UNUSED      ; Untyped                                              ;
+; LPM_SVALUE             ; UNUSED      ; Untyped                                              ;
+; LPM_PORT_UPDOWN        ; PORT_UNUSED ; Untyped                                              ;
+; DEVICE_FAMILY          ; Cyclone III ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                              ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                   ;
+; NOT_GATE_PUSH_BACK     ; ON          ; NOT_GATE_PUSH_BACK                                   ;
+; CARRY_CNT_EN           ; SMART       ; Untyped                                              ;
+; LABWIDE_SCLR           ; ON          ; Untyped                                              ;
+; USE_NEW_VERSION        ; TRUE        ; Untyped                                              ;
+; CBXI_PARAMETER         ; cntr_gph    ; Untyped                                              ;
++------------------------+-------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "Trig_gen:inst|Counter:trigg" ;
++--------+-------+----------+-----------------------------+
+; Port   ; Type  ; Severity ; Details                     ;
++--------+-------+----------+-----------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                ;
++--------+-------+----------+-----------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Web Edition
+    Info: Processing started: Mon Mar 09 14:45:11 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Full_Capteur -c Full_Capteur
+Info: Found 1 design units, including 1 entities, in source file Full_Capteur.bdf
+    Info: Found entity 1: Full_Capteur
+Info: Elaborating entity "Full_Capteur" for the top level hierarchy
+Warning: Using design file Trig_gen.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: Trig_gen-Behavioral
+    Info: Found entity 1: Trig_gen
+Info: Elaborating entity "Trig_gen" for hierarchy "Trig_gen:inst"
+Warning (10492): VHDL Process Statement warning at Trig_gen.vhd(32): signal "outputCounter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Trig_gen.vhd(37): signal "outputCounter" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning: Using design file Counter.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: Counter-Behavioral
+    Info: Found entity 1: Counter
+Info: Elaborating entity "Counter" for hierarchy "Trig_gen:inst|Counter:trigg"
+Warning: Using design file Distance_Calc.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: Distance_Calc-Behavioral
+    Info: Found entity 1: Distance_Calc
+Info: Elaborating entity "Distance_Calc" for hierarchy "Distance_Calc:inst16"
+Info: Elaborating entity "Counter" for hierarchy "Distance_Calc:inst16|Counter:CounterEcho"
+Warning: Using design file Buzzer_sounder.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: Buzzer_sounder-behavioral
+    Info: Found entity 1: Buzzer_sounder
+Info: Elaborating entity "Buzzer_sounder" for hierarchy "Buzzer_sounder:inst17"
+Warning: Using design file div1hz.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: div1hz-SYN
+    Info: Found entity 1: div1hz
+Info: Elaborating entity "div1hz" for hierarchy "div1hz:inst3"
+Info: Elaborating entity "lpm_counter" for hierarchy "div1hz:inst3|lpm_counter:lpm_counter_component"
+Info: Elaborated megafunction instantiation "div1hz:inst3|lpm_counter:lpm_counter_component"
+Info: Instantiated megafunction "div1hz:inst3|lpm_counter:lpm_counter_component" with the following parameter:
+    Info: Parameter "lpm_direction" = "UP"
+    Info: Parameter "lpm_port_updown" = "PORT_UNUSED"
+    Info: Parameter "lpm_type" = "LPM_COUNTER"
+    Info: Parameter "lpm_width" = "30"
+Info: Found 1 design units, including 1 entities, in source file db/cntr_gph.tdf
+    Info: Found entity 1: cntr_gph
+Info: Elaborating entity "cntr_gph" for hierarchy "div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated"
+Warning: Using design file Moteur.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: Moteur-Behavioral
+    Info: Found entity 1: Moteur
+Info: Elaborating entity "Moteur" for hierarchy "Moteur:inst2"
+Warning: Using design file affichage.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: affichage-a
+    Info: Found entity 1: affichage
+Info: Elaborating entity "affichage" for hierarchy "affichage:inst9"
+Warning: Using design file BCD_Converter.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: BCD_Converter-Behavioral
+    Info: Found entity 1: BCD_Converter
+Info: Elaborating entity "BCD_Converter" for hierarchy "BCD_Converter:inst1"
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "point" is stuck at GND
+Info: 4 registers lost all their fanouts during netlist optimizations. The first 4 are displayed below.
+    Info: Register "div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[29]" lost all its fanouts during netlist optimizations.
+    Info: Register "div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[28]" lost all its fanouts during netlist optimizations.
+    Info: Register "div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[27]" lost all its fanouts during netlist optimizations.
+    Info: Register "div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[26]" lost all its fanouts during netlist optimizations.
+Info: Implemented 238 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 29 output pins
+    Info: Implemented 207 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 258 megabytes
+    Info: Processing ended: Mon Mar 09 14:45:14 2020
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+

@@ -1,0 +1,10 @@
+|Buzzer_sounder
+sounder[1] => Mux0.IN1
+sounder[2] => Mux0.IN0
+freq1 => Mux0.IN2
+freq2 => Mux0.IN3
+freq3 => Mux0.IN4
+freq4 => Mux0.IN5
+buzzer <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

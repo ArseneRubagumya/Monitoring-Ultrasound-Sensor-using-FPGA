@@ -1,0 +1,1008 @@
+TimeQuest Timing Analyzer report for Test_moteur
+Mon Mar 09 01:39:12 2020
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Slow 1200mV 85C Model Setup Summary
+  7. Slow 1200mV 85C Model Hold Summary
+  8. Slow 1200mV 85C Model Recovery Summary
+  9. Slow 1200mV 85C Model Removal Summary
+ 10. Slow 1200mV 85C Model Minimum Pulse Width
+ 11. Setup Times
+ 12. Hold Times
+ 13. Clock to Output Times
+ 14. Minimum Clock to Output Times
+ 15. Slow 1200mV 0C Model Fmax Summary
+ 16. Slow 1200mV 0C Model Setup Summary
+ 17. Slow 1200mV 0C Model Hold Summary
+ 18. Slow 1200mV 0C Model Recovery Summary
+ 19. Slow 1200mV 0C Model Removal Summary
+ 20. Slow 1200mV 0C Model Minimum Pulse Width
+ 21. Setup Times
+ 22. Hold Times
+ 23. Clock to Output Times
+ 24. Minimum Clock to Output Times
+ 25. Fast 1200mV 0C Model Setup Summary
+ 26. Fast 1200mV 0C Model Hold Summary
+ 27. Fast 1200mV 0C Model Recovery Summary
+ 28. Fast 1200mV 0C Model Removal Summary
+ 29. Fast 1200mV 0C Model Minimum Pulse Width
+ 30. Setup Times
+ 31. Hold Times
+ 32. Clock to Output Times
+ 33. Minimum Clock to Output Times
+ 34. Multicorner Timing Analysis Summary
+ 35. Setup Times
+ 36. Hold Times
+ 37. Clock to Output Times
+ 38. Minimum Clock to Output Times
+ 39. Board Trace Model Assignments
+ 40. Input Transition Times
+ 41. Slow Corner Signal Integrity Metrics
+ 42. Fast Corner Signal Integrity Metrics
+ 43. Setup Transfers
+ 44. Hold Transfers
+ 45. Report TCCS
+ 46. Report RSKM
+ 47. Unconstrained Paths
+ 48. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                    ;
++--------------------+-------------------------------------------------+
+; Quartus II Version ; Version 9.0 Build 132 02/25/2009 SJ Web Edition ;
+; Revision Name      ; Test_moteur                                     ;
+; Device Family      ; Cyclone III                                     ;
+; Device Name        ; EP3C16F484C6                                    ;
+; Timing Models      ; Final                                           ;
+; Delay Model        ; Combined                                        ;
+; Rise/Fall Delays   ; Enabled                                         ;
++--------------------+-------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                                                                                                                 ;
++--------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------------------------------------------------------------------------+
+; Clock Name                                                                                 ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                                                                        ;
++--------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------------------------------------------------------------------------+
+; clock                                                                                      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock }                                                                                      ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] } ;
++--------------------------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                                                                                                         ;
++-------------+-----------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                                                                                 ; Note                                                          ;
++-------------+-----------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+; 424.09 MHz  ; 250.0 MHz       ; clock                                                                                      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 1113.59 MHz ; 500.0 MHz       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; limit due to minimum period restriction (tmin)                ;
++-------------+-----------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                                                                                 ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                      ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+; clock                                                                                      ; -1.358 ; -14.311       ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.102  ; 0.000         ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                                                                                 ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                                      ; Slack ; End Point TNS ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+; clock                                                                                      ; 0.062 ; 0.000         ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.387 ; 0.000         ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width                                                                                                                                                                                                                                ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock                                                                                      ; Clock Edge ; Target                                                                                     ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; clock                                                                                      ; Rise       ; clock                                                                                      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; 0.189  ; 0.290        ; 0.184          ; 0.083 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; 0.189  ; 0.289        ; 0.184          ; 0.084 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.295  ; 0.371        ; 0.184          ; 0.108 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; 0.295  ; 0.371        ; 0.184          ; 0.108 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; 0.295  ; 0.371        ; 0.184          ; 0.108 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; 0.295  ; 0.371        ; 0.184          ; 0.108 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; 0.302  ; 0.410        ; 0.216          ; 0.108 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; 0.302  ; 0.410        ; 0.216          ; 0.108 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; 0.302  ; 0.410        ; 0.216          ; 0.108 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; 0.302  ; 0.410        ; 0.216          ; 0.108 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; 0.339  ; 0.339        ; 0.000          ; 0.000 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~input|o                                                                              ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[10]|clk                         ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[11]|clk                         ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[12]|clk                         ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[13]|clk                         ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[14]|clk                         ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[15]|clk                         ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|clk                         ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[8]|clk                          ;
+; 0.350  ; 0.305        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[9]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[0]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[1]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[2]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[3]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[4]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[5]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[6]|clk                          ;
+; 0.351  ; 0.306        ; 0.000          ; 0.045 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[7]|clk                          ;
+; 0.356  ; 0.350        ; 0.000          ; 0.006 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~inputclkctrl|inclk[0]                                                                ;
+; 0.356  ; 0.350        ; 0.000          ; 0.006 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~inputclkctrl|outclk                                                                  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; 0.409  ; 0.542        ; 0.216          ; 0.083 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; 0.410  ; 0.542        ; 0.216          ; 0.084 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.457  ; 0.387        ; 0.000          ; 0.070 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E1|clk                                                                             ;
+; 0.457  ; 0.387        ; 0.000          ; 0.070 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E2|clk                                                                             ;
+; 0.457  ; 0.387        ; 0.000          ; 0.070 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E3|clk                                                                             ;
+; 0.457  ; 0.387        ; 0.000          ; 0.070 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E4|clk                                                                             ;
+; 0.463  ; 0.431        ; 0.000          ; 0.032 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|inclk[0]            ;
+; 0.463  ; 0.431        ; 0.000          ; 0.032 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|outclk              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; clock                                                                                      ; Rise       ; clock~input|i                                                                              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~input|i                                                                              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|q                           ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|q                           ;
+; 0.536  ; 0.504        ; 0.000          ; 0.032 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|inclk[0]            ;
+; 0.536  ; 0.504        ; 0.000          ; 0.032 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|outclk              ;
+; 0.542  ; 0.472        ; 0.000          ; 0.070 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E1|clk                                                                             ;
+; 0.542  ; 0.472        ; 0.000          ; 0.070 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E2|clk                                                                             ;
+; 0.542  ; 0.472        ; 0.000          ; 0.070 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E3|clk                                                                             ;
+; 0.542  ; 0.472        ; 0.000          ; 0.070 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E4|clk                                                                             ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Times                                                                                                                                                                                                                         ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.491 ; 4.043 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.491 ; 4.043 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 2.182 ; 2.673 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 2.602 ; 3.064 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.202 ; 3.753 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.304 ; 3.851 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Times                                                                                                                                                                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.690 ; -2.170 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -2.950 ; -3.486 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.690 ; -2.170 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -2.097 ; -2.545 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -2.668 ; -3.205 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -2.772 ; -3.302 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                                                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.704 ; 6.700 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.371 ; 6.399 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.704 ; 6.700 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.936 ; 5.863 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.873 ; 5.943 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                                                                                                    ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.579 ; 5.586 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.078 ; 5.926 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.219 ; 6.394 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.579 ; 5.673 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.682 ; 5.586 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                                                                                                          ;
++-------------+-----------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                                                                                 ; Note                                                          ;
++-------------+-----------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+; 482.63 MHz  ; 250.0 MHz       ; clock                                                                                      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 1253.13 MHz ; 500.0 MHz       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; limit due to minimum period restriction (tmin)                ;
++-------------+-----------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                                                                                  ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                      ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+; clock                                                                                      ; -1.072 ; -10.745       ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.202  ; 0.000         ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                                                                                  ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                                      ; Slack ; End Point TNS ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+; clock                                                                                      ; 0.059 ; 0.000         ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.346 ; 0.000         ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width                                                                                                                                                                                                                                 ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock                                                                                      ; Clock Edge ; Target                                                                                     ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; clock                                                                                      ; Rise       ; clock                                                                                      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; 0.184  ; 0.295        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; 0.185  ; 0.296        ; 0.184          ; 0.073 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; 0.281  ; 0.401        ; 0.216          ; 0.096 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; 0.281  ; 0.401        ; 0.216          ; 0.096 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; 0.281  ; 0.401        ; 0.216          ; 0.096 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; 0.281  ; 0.401        ; 0.216          ; 0.096 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; 0.317  ; 0.405        ; 0.184          ; 0.096 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; 0.317  ; 0.405        ; 0.184          ; 0.096 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; 0.317  ; 0.405        ; 0.184          ; 0.096 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; 0.317  ; 0.405        ; 0.184          ; 0.096 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; 0.339  ; 0.339        ; 0.000          ; 0.000 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~input|o                                                                              ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[10]|clk                         ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[11]|clk                         ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[12]|clk                         ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[13]|clk                         ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[14]|clk                         ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[15]|clk                         ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|clk                         ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[8]|clk                          ;
+; 0.344  ; 0.305        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[9]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[0]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[1]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[2]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[3]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[4]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[5]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[6]|clk                          ;
+; 0.345  ; 0.306        ; 0.000          ; 0.039 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[7]|clk                          ;
+; 0.348  ; 0.343        ; 0.000          ; 0.005 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~inputclkctrl|inclk[0]                                                                ;
+; 0.348  ; 0.343        ; 0.000          ; 0.005 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~inputclkctrl|outclk                                                                  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; 0.414  ; 0.557        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; 0.415  ; 0.558        ; 0.216          ; 0.073 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.477  ; 0.415        ; 0.000          ; 0.062 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E1|clk                                                                             ;
+; 0.477  ; 0.415        ; 0.000          ; 0.062 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E2|clk                                                                             ;
+; 0.477  ; 0.415        ; 0.000          ; 0.062 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E3|clk                                                                             ;
+; 0.477  ; 0.415        ; 0.000          ; 0.062 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E4|clk                                                                             ;
+; 0.481  ; 0.452        ; 0.000          ; 0.029 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|inclk[0]            ;
+; 0.481  ; 0.452        ; 0.000          ; 0.029 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|outclk              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; clock                                                                                      ; Rise       ; clock~input|i                                                                              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~input|i                                                                              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|q                           ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|q                           ;
+; 0.518  ; 0.489        ; 0.000          ; 0.029 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|inclk[0]            ;
+; 0.518  ; 0.489        ; 0.000          ; 0.029 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|outclk              ;
+; 0.521  ; 0.459        ; 0.000          ; 0.062 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E1|clk                                                                             ;
+; 0.521  ; 0.459        ; 0.000          ; 0.062 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E2|clk                                                                             ;
+; 0.521  ; 0.459        ; 0.000          ; 0.062 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E3|clk                                                                             ;
+; 0.521  ; 0.459        ; 0.000          ; 0.062 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E4|clk                                                                             ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Times                                                                                                                                                                                                                         ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.126 ; 3.571 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.126 ; 3.571 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 1.930 ; 2.334 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 2.326 ; 2.670 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 2.868 ; 3.301 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 2.968 ; 3.400 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Times                                                                                                                                                                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.501 ; -1.891 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -2.653 ; -3.078 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.501 ; -1.891 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.885 ; -2.216 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -2.401 ; -2.817 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -2.502 ; -2.917 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                                                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.254 ; 6.282 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.975 ; 5.984 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.254 ; 6.282 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.525 ; 5.506 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.517 ; 5.533 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                                                                                                    ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.209 ; 5.217 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.705 ; 5.570 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.830 ; 6.000 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.209 ; 5.331 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.342 ; 5.217 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                                                                                  ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+; Clock                                                                                      ; Slack  ; End Point TNS ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+; clock                                                                                      ; -0.329 ; -1.617        ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.507  ; 0.000         ;
++--------------------------------------------------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                                                                                  ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+; Clock                                                                                      ; Slack ; End Point TNS ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+; clock                                                                                      ; 0.007 ; 0.000         ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.205 ; 0.000         ;
++--------------------------------------------------------------------------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width                                                                                                                                                                                                                                 ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; CCPP  ; Type             ; Clock                                                                                      ; Clock Edge ; Target                                                                                     ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; 0.000 ; Port Rate        ; clock                                                                                      ; Rise       ; clock                                                                                      ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; 0.000 ; Min Period       ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; -0.056 ; 0.078        ; 0.184          ; 0.050 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; -0.056 ; 0.079        ; 0.184          ; 0.049 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.118  ; 0.118        ; 0.000          ; 0.000 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~input|o                                                                              ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[0]|clk                          ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[1]|clk                          ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[2]|clk                          ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[3]|clk                          ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[4]|clk                          ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[5]|clk                          ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[6]|clk                          ;
+; 0.123  ; 0.096        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[7]|clk                          ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[10]|clk                         ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[11]|clk                         ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[12]|clk                         ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[13]|clk                         ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[14]|clk                         ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[15]|clk                         ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|clk                         ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[8]|clk                          ;
+; 0.124  ; 0.097        ; 0.000          ; 0.027 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[9]|clk                          ;
+; 0.132  ; 0.129        ; 0.000          ; 0.003 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~inputclkctrl|inclk[0]                                                                ;
+; 0.132  ; 0.129        ; 0.000          ; 0.003 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~inputclkctrl|outclk                                                                  ;
+; 0.272  ; 0.392        ; 0.184          ; 0.064 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; 0.272  ; 0.392        ; 0.184          ; 0.064 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; 0.272  ; 0.392        ; 0.184          ; 0.064 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; 0.272  ; 0.392        ; 0.184          ; 0.064 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; 0.325  ; 0.477        ; 0.216          ; 0.064 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E1                                                                          ;
+; 0.325  ; 0.477        ; 0.216          ; 0.064 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E2                                                                          ;
+; 0.325  ; 0.477        ; 0.216          ; 0.064 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E3                                                                          ;
+; 0.325  ; 0.477        ; 0.216          ; 0.064 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; Moteur:inst4|x.E4                                                                          ;
+; 0.452  ; 0.410        ; 0.000          ; 0.042 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E1|clk                                                                             ;
+; 0.452  ; 0.410        ; 0.000          ; 0.042 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E2|clk                                                                             ;
+; 0.452  ; 0.410        ; 0.000          ; 0.042 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E3|clk                                                                             ;
+; 0.452  ; 0.410        ; 0.000          ; 0.042 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E4|clk                                                                             ;
+; 0.461  ; 0.443        ; 0.000          ; 0.018 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|inclk[0]            ;
+; 0.461  ; 0.443        ; 0.000          ; 0.018 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|outclk              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; clock                                                                                      ; Rise       ; clock~input|i                                                                              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; clock                                                                                      ; Rise       ; clock~input|i                                                                              ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|q                           ;
+; 0.500  ; 0.500        ; 0.000          ; 0.000 ; Low Pulse Width  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]|q                           ;
+; 0.538  ; 0.520        ; 0.000          ; 0.018 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|inclk[0]            ;
+; 0.538  ; 0.520        ; 0.000          ; 0.018 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst3|lpm_counter_component|auto_generated|counter_reg_bit[16]~clkctrl|outclk              ;
+; 0.547  ; 0.505        ; 0.000          ; 0.042 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E1|clk                                                                             ;
+; 0.547  ; 0.505        ; 0.000          ; 0.042 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E2|clk                                                                             ;
+; 0.547  ; 0.505        ; 0.000          ; 0.042 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E3|clk                                                                             ;
+; 0.547  ; 0.505        ; 0.000          ; 0.042 ; High Pulse Width ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; Rise       ; inst4|x.E4|clk                                                                             ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[10] ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[11] ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[12] ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[13] ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[14] ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[15] ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[8]  ;
+; 0.654  ; 0.821        ; 0.216          ; 0.049 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[9]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[0]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[1]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[2]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[3]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[4]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[5]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[6]  ;
+; 0.655  ; 0.821        ; 0.216          ; 0.050 ; High Pulse Width ; clock                                                                                      ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[7]  ;
++--------+--------------+----------------+-------+------------------+--------------------------------------------------------------------------------------------+------------+--------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Times                                                                                                                                                                                                                         ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 1.978 ; 2.697 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 1.978 ; 2.697 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 1.265 ; 1.898 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 1.458 ; 2.079 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 1.799 ; 2.505 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 1.873 ; 2.571 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Times                                                                                                                                                                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -0.991 ; -1.613 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.674 ; -2.380 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -0.991 ; -1.613 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.174 ; -1.787 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.503 ; -2.195 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.573 ; -2.260 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                                                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 4.088 ; 3.936 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.760 ; 3.906 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 4.088 ; 3.936 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.570 ; 3.479 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.489 ; 3.579 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                                                                                                    ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.365 ; 3.369 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.595 ; 3.632 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.807 ; 3.764 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.365 ; 3.369 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.379 ; 3.374 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                                                                      ;
++---------------------------------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
+; Clock                                                                                       ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++---------------------------------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack                                                                            ; -1.358  ; 0.0   ; 0.0      ; 0.0     ; -3.000              ;
+;  clock                                                                                      ; -1.358  ; 0.007 ; N/A      ; N/A     ; N/A                 ;
+;  div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.102   ; 0.205 ; N/A      ; N/A     ; N/A                 ;
+; Design-wide TNS                                                                             ; -14.311 ; 0.0   ; 0.0      ; 0.0     ; N/A                 ;
+;  clock                                                                                      ; -14.311 ; 0.000 ; N/A      ; N/A     ; N/A                 ;
+;  div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 0.000   ; 0.000 ; N/A      ; N/A     ; N/A                 ;
++---------------------------------------------------------------------------------------------+---------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Times                                                                                                                                                                                                                         ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.491 ; 4.043 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.491 ; 4.043 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 2.182 ; 2.673 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 2.602 ; 3.064 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.202 ; 3.753 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.304 ; 3.851 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Times                                                                                                                                                                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; Data Port    ; Clock Port                                                                                 ; Rise   ; Fall   ; Clock Edge ; Clock Reference                                                                            ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+; distance[*]  ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -0.991 ; -1.613 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[4] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.674 ; -2.380 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[5] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -0.991 ; -1.613 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[6] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.174 ; -1.787 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[7] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.503 ; -2.195 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  distance[8] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; -1.573 ; -2.260 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++--------------+--------------------------------------------------------------------------------------------+--------+--------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                                                                                                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.704 ; 6.700 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.371 ; 6.399 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 6.704 ; 6.700 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.936 ; 5.863 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 5.873 ; 5.943 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                                                                                                                                                    ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; Data Port ; Clock Port                                                                                 ; Rise  ; Fall  ; Clock Edge ; Clock Reference                                                                            ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+; IN[*]     ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.365 ; 3.369 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[0]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.595 ; 3.632 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[1]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.807 ; 3.764 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[2]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.365 ; 3.369 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
+;  IN[3]    ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 3.379 ; 3.374 ; Rise       ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ;
++-----------+--------------------------------------------------------------------------------------------+-------+-------+------------+--------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; IN[3]         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; IN[2]         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; IN[1]         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; IN[0]         ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; distance[3]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[2]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[1]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[0]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[4]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[6]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[8]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[7]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; distance[5]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clock                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; IN[3]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-006 V                  ; 2.36 V              ; -0.0108 V           ; 0.122 V                              ; 0.021 V                              ; 4.5e-010 s                  ; 4.45e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-006 V                 ; 2.36 V             ; -0.0108 V          ; 0.122 V                             ; 0.021 V                             ; 4.5e-010 s                 ; 4.45e-010 s                ; Yes                       ; Yes                       ;
+; IN[2]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-006 V                  ; 2.36 V              ; -0.0108 V           ; 0.122 V                              ; 0.021 V                              ; 4.5e-010 s                  ; 4.45e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-006 V                 ; 2.36 V             ; -0.0108 V          ; 0.122 V                             ; 0.021 V                             ; 4.5e-010 s                 ; 4.45e-010 s                ; Yes                       ; Yes                       ;
+; IN[1]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-006 V                  ; 2.36 V              ; -0.0108 V           ; 0.122 V                              ; 0.021 V                              ; 4.5e-010 s                  ; 4.45e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-006 V                 ; 2.36 V             ; -0.0108 V          ; 0.122 V                             ; 0.021 V                             ; 4.5e-010 s                 ; 4.45e-010 s                ; Yes                       ; Yes                       ;
+; IN[0]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-006 V                  ; 2.36 V              ; -0.0108 V           ; 0.122 V                              ; 0.021 V                              ; 4.5e-010 s                  ; 4.45e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-006 V                 ; 2.36 V             ; -0.0108 V          ; 0.122 V                             ; 0.021 V                             ; 4.5e-010 s                 ; 4.45e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-007 V                  ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-007 V                 ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-007 V                  ; 2.35 V              ; -0.00483 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-010 s                 ; 9.82e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-007 V                 ; 2.35 V             ; -0.00483 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-010 s                ; 9.82e-010 s                ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; IN[3]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-008 V                  ; 2.73 V              ; -0.0567 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-010 s                 ; 2.76e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-008 V                 ; 2.73 V             ; -0.0567 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-010 s                ; 2.76e-010 s                ; Yes                       ; Yes                       ;
+; IN[2]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-008 V                  ; 2.73 V              ; -0.0567 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-010 s                 ; 2.76e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-008 V                 ; 2.73 V             ; -0.0567 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-010 s                ; 2.76e-010 s                ; Yes                       ; Yes                       ;
+; IN[1]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-008 V                  ; 2.73 V              ; -0.0567 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-010 s                 ; 2.76e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-008 V                 ; 2.73 V             ; -0.0567 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-010 s                ; 2.76e-010 s                ; Yes                       ; Yes                       ;
+; IN[0]         ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-008 V                  ; 2.73 V              ; -0.0567 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-010 s                 ; 2.76e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-008 V                 ; 2.73 V             ; -0.0567 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-010 s                ; 2.76e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.19e-008 V                  ; 2.72 V              ; -0.0746 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-010 s                  ; 3.01e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.19e-008 V                 ; 2.72 V             ; -0.0746 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-010 s                 ; 3.01e-010 s                ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-008 V                  ; 2.7 V               ; -0.021 V            ; 0.204 V                              ; 0.048 V                              ; 4.85e-010 s                 ; 6.74e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-008 V                 ; 2.7 V              ; -0.021 V           ; 0.204 V                             ; 0.048 V                             ; 4.85e-010 s                ; 6.74e-010 s                ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                                                                 ; To Clock                                                                                   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; clock                                                                                      ; clock                                                                                      ; 152      ; 0        ; 0        ; 0        ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; clock                                                                                      ; 1        ; 1        ; 0        ; 0        ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 8        ; 0        ; 0        ; 0        ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                                                                                                                      ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                                                                 ; To Clock                                                                                   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+; clock                                                                                      ; clock                                                                                      ; 152      ; 0        ; 0        ; 0        ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; clock                                                                                      ; 1        ; 1        ; 0        ; 0        ;
+; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] ; 8        ; 0        ; 0        ; 0        ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design.
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design.
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 5     ; 5    ;
+; Unconstrained Input Port Paths  ; 20    ; 20   ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 8     ; 8    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Web Edition
+    Info: Processing started: Mon Mar 09 01:39:10 2020
+Info: Command: quartus_sta Test_moteur -c Test_moteur
+Info: qsta_default_script.tcl version: #3
+Info: Core supply voltage is 1.2V
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Critical Warning: Synopsys Design Constraints File file not found: 'Test_moteur.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clock clock
+    Info: create_clock -period 1.000 -name div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16]
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From clock (Rise) to clock (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to clock (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to clock (Rise) (setup and hold)
+    Critical Warning: From clock (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From clock (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -1.358
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.358       -14.311 clock 
+    Info:     0.102         0.000 div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] 
+Info: Worst-case hold slack is 0.062
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.062         0.000 clock 
+    Info:     0.387         0.000 div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Analyzing Slow 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From clock (Rise) to clock (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to clock (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to clock (Rise) (setup and hold)
+    Critical Warning: From clock (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From clock (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -1.072
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -1.072       -10.745 clock 
+    Info:     0.202         0.000 div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] 
+Info: Worst-case hold slack is 0.059
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.059         0.000 clock 
+    Info:     0.346         0.000 div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Analyzing Fast 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Critical Warning: The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning: From clock (Rise) to clock (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to clock (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to clock (Rise) (setup and hold)
+    Critical Warning: From clock (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) (setup and hold)
+    Critical Warning: From clock (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Rise) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+    Critical Warning: From div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) to div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] (Fall) (setup and hold)
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -0.329
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -0.329        -1.617 clock 
+    Info:     0.507         0.000 div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] 
+Info: Worst-case hold slack is 0.007
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.007         0.000 clock 
+    Info:     0.205         0.000 div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16] 
+Info: No recovery paths to report
+Info: No removal paths to report
+Critical Warning: Found minimum pulse width or period violations. See Report Minimum Pulse Width for details.
+Info: The Metastability Analysis global option is set to OFF.
+Info: No synchronizer chains to report.
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 37 warnings
+    Info: Peak virtual memory: 256 megabytes
+    Info: Processing ended: Mon Mar 09 01:39:12 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

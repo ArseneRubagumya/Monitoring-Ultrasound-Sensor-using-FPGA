@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Test_moteur">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Test_moteur|div1hz:inst3|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_gph.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

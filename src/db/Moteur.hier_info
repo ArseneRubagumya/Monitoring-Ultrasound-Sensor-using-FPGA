@@ -1,0 +1,17 @@
+|Moteur
+clk => sens.CLK
+distance[0] => LessThan0.IN18
+distance[1] => LessThan0.IN17
+distance[2] => LessThan0.IN16
+distance[3] => LessThan0.IN15
+distance[4] => LessThan0.IN14
+distance[5] => LessThan0.IN13
+distance[6] => LessThan0.IN12
+distance[7] => LessThan0.IN11
+distance[8] => LessThan0.IN10
+ToMotor[0] <= ToMotor~1.DB_MAX_OUTPUT_PORT_TYPE
+ToMotor[1] <= ToMotor~1.DB_MAX_OUTPUT_PORT_TYPE
+ToMotor[2] <= ToMotor~0.DB_MAX_OUTPUT_PORT_TYPE
+ToMotor[3] <= ToMotor~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

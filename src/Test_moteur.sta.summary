@@ -1,0 +1,53 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clock'
+Slack : -1.358
+TNS   : -14.311
+
+Type  : Slow 1200mV 85C Model Setup 'div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16]'
+Slack : 0.102
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.062
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16]'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clock'
+Slack : -1.072
+TNS   : -10.745
+
+Type  : Slow 1200mV 0C Model Setup 'div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16]'
+Slack : 0.202
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.059
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16]'
+Slack : 0.346
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clock'
+Slack : -0.329
+TNS   : -1.617
+
+Type  : Fast 1200mV 0C Model Setup 'div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16]'
+Slack : 0.507
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock'
+Slack : 0.007
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'div1hz:inst3|lpm_counter:lpm_counter_component|cntr_gph:auto_generated|counter_reg_bit[16]'
+Slack : 0.205
+TNS   : 0.000
+
+------------------------------------------------------------

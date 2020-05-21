@@ -1,0 +1,13 @@
+/* Quartus II Version 9.0 Build 132 02/25/2009 SJ Web Edition */
+JedecChain;
+	FileRevision(JESD32A);
+	DefaultMfr(6E);
+
+	P ActionCode(Cfg)
+		Device PartName(EP3C16F484) Path("C:/Users/arsen/Desktop/capt2/") File("Full_Capteur.sof") MfrSpec(OpMask(1));
+
+ChainEnd;
+
+AlteraBegin;
+	ChainType(JTAG);
+AlteraEnd;

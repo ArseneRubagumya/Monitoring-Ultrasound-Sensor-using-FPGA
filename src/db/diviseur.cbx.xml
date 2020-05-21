@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="diviseur">
+		<CBX_INST_ENTRY INSTANCE_NAME="|diviseur|cmp4bits:inst1|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_1oh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|diviseur|div1hz:inst|lpm_counter:lpm_counter_component" CBX_FILE_NAME="cntr_gph.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
